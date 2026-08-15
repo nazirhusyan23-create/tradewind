@@ -260,6 +260,13 @@ button{ font-family:inherit; }
 .card__icon{ width:36px; height:36px; color:var(--brass-dim); }
 .card__icon svg{ width:100%; height:100%; }
 
+.card__photo{
+  width:100%; height:150px; margin:-6px 0 4px -14px; padding:0;
+  border-radius:2px; overflow:hidden; background:#fff;
+  border:1px solid var(--paper-dim);
+}
+.card__photo img{ width:100%; height:100%; object-fit:contain; display:block; }
+
 .card__title{ font-family:var(--font-display); font-size:1.15rem; line-height:1.2; padding-right:50px; margin:0; }
 .card__desc{ font-size:0.87rem; color:var(--ink-text-dim); margin:0; flex:1; }
 
@@ -543,7 +550,8 @@ button{ font-family:inherit; }
     { id:"p13", title:"Nomatic Travel Backpack 30L", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6601", price:"$249.99", desc:"Modular carry-on backpack with a dedicated laptop sleeve, packing cubes, and reinforced weatherproof shell.", link:"https://www.amazon.com/s?k=Nomatic+Travel+Backpack+30L&tag=tradewind20-20" },
     { id:"p14", title:"Bose QuietComfort Ultra Earbuds", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6602", price:"$299.00", desc:"Compact true-wireless earbuds with immersive spatial audio and best-in-class active noise cancellation.", link:"https://www.amazon.com/s?k=Bose+QuietComfort+Ultra+Earbuds&tag=tradewind20-20" },
     { id:"p15", title:"Leatherman Free P4", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7701", price:"$139.95", desc:"21-tool magnetic multi-tool that opens one-handed, built from premium stainless steel for daily carry.", link:"https://www.amazon.com/s?k=Leatherman+Free+P4&tag=tradewind20-20" },
-    { id:"p16", title:"Goal Zero Yeti 500", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7702", price:"$399.95", desc:"Portable lithium power station with AC, USB-C PD, and 12V outputs for camping, vanlife, or backup power.", link:"https://www.amazon.com/s?k=Goal+Zero+Yeti+500&tag=tradewind20-20" }
+    { id:"p16", title:"Goal Zero Yeti 500", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7702", price:"$399.95", desc:"Portable lithium power station with AC, USB-C PD, and 12V outputs for camping, vanlife, or backup power.", link:"https://www.amazon.com/s?k=Goal+Zero+Yeti+500&tag=tradewind20-20" },
+    { id:"p17", title:"JcBlaon 6-Outlet Surge Protector", category:"smart-home", categoryLabel:"Smart Home", origin:"CN", originName:"China", sku:"SH-3303", price:"$12.59", desc:"Wall-mount outlet extender with 6 spaced surge-protected sockets, a USB charging slot, light indicator, and a lightweight mountable design that turns one outlet into six.", image:"https://m.media-amazon.com/images/I/61VyzebJdYL._AC_SY300_SX300_QL70_FMwebp_.jpg", link:"https://www.amazon.com/Outlet-Extender-Adapter-Charging-Spaced/dp/B0F2YCGJGR?crid=12UUYY1O9YSD4&dib=eyJ2IjoiMSJ9.ieSyXcgpIBsWBIQVXn2dY50Zcs2p4zZQJOXv-DDDKfqG2fqQrini8rO7dyFa0R2UfbRhfPj5HFSNH0dzMLpPFEBJxHUuBf7AQdfBK2XnV2VN6F80AkaYd9UoGFGJ78N_E9G7e5YAgGDityLDH7duRTbLtka-Eq0rnEjItNycoKXsrEaovTPu3rsUo732XM-eh18XusqJaLbCsGOk7UUIuzdHMpASi2wivxbcvHkX6GqAUEqODymFzdURNQCOESqh7FsoVVKtPzFXmmX3LP_z22JdtL2LZ3KHmIbW5Xc47lU.f8vX0blLWjiWvi1g0QqD9FjzCKdRUfiVxex96jhMm9U&dib_tag=se&keywords=Smart%2BPlugs&qid=1786805732&sprefix=smart%2Bplugs%2Caps%2C689&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=tradewind20-20&linkId=ca599137814701ddaf3f17060dd8893c&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" }
   ];
 
   const CATEGORY_ORDER = ["smart-home","audio","wearables","photography","computing","kitchen","travel","outdoor"];
@@ -605,7 +613,10 @@ button{ font-family:inherit; }
         <span class="stamp__code">${p.origin}</span>
         <span class="stamp__cat">${p.category.slice(0,4)}</span>
       </div>
-      <div class="card__icon" aria-hidden="true">${ICONS[p.category] || ''}</div>
+      ${p.image
+        ? `<div class="card__photo" data-cat="${p.category}"><img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy" onerror="handleImgError(this)"></div>`
+        : `<div class="card__icon" aria-hidden="true">${ICONS[p.category] || ''}</div>`
+      }
       <h3 class="card__title">${escapeHTML(p.title)}</h3>
       <p class="card__desc">${escapeHTML(p.desc)}</p>
       <dl class="card__meta">
@@ -628,6 +639,17 @@ button{ font-family:inherit; }
       <span class="tag mono">in-feed unit · slot ${index}</span>
     </div>`;
   }
+
+  window.handleImgError = function(imgEl){
+    const wrap = imgEl.closest('.card__photo');
+    if (!wrap) return;
+    const cat = wrap.dataset.cat;
+    const iconDiv = document.createElement('div');
+    iconDiv.className = 'card__icon';
+    iconDiv.setAttribute('aria-hidden', 'true');
+    iconDiv.innerHTML = ICONS[cat] || '';
+    wrap.replaceWith(iconDiv);
+  };
 
   function escapeHTML(str){
     const div = document.createElement('div');
