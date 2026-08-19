@@ -154,6 +154,44 @@ button{ font-family:inherit; }
 .disclosure-bar strong{ color:var(--brass); font-weight:600; }
 
 /* ============================================================
+   TRENDING TICKER — auto-scrolling headline of featured products
+   ============================================================ */
+.ticker{
+  background:var(--brass); color:var(--ink);
+  display:flex; align-items:stretch; overflow:hidden;
+  border-bottom:1px solid rgba(14,21,36,0.15);
+}
+.ticker__label{
+  flex:0 0 auto; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.08em; padding:9px 16px; background:var(--ink); color:var(--brass); white-space:nowrap;
+  display:flex; align-items:center; gap:6px;
+}
+.ticker__viewport{ overflow:hidden; flex:1; display:flex; align-items:center; }
+.ticker__track{
+  display:flex; align-items:center; gap:28px; white-space:nowrap; padding:0 24px;
+  animation:tickerScroll 26s linear infinite;
+  width:max-content;
+}
+.ticker:hover .ticker__track, .ticker:focus-within .ticker__track{ animation-play-state:paused; }
+.ticker__item{
+  background:none; border:none; cursor:pointer; font-family:var(--font-mono); font-size:0.76rem; font-weight:600;
+  color:var(--ink); display:inline-flex; align-items:center; gap:6px; padding:9px 0; letter-spacing:0.01em;
+}
+.ticker__item:hover, .ticker__item:focus-visible{ text-decoration:underline; }
+.ticker__sep{ opacity:0.45; }
+
+@keyframes tickerScroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker__track{ animation:none; overflow-x:auto; }
+}
+@media (max-width: 560px){
+  .ticker__label{ padding:9px 10px; font-size:0.64rem; }
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero{ padding:64px 0 48px; position:relative; overflow:hidden; }
@@ -458,6 +496,13 @@ button{ font-family:inherit; }
 
 <div class="disclosure-bar">
   <strong>Affiliate Disclosure:</strong> TradeWind may earn a commission from qualifying purchases made through links on this site, at no extra cost to you.
+</div>
+
+<div class="ticker" id="tickerBar" aria-label="Trending featured products">
+  <span class="ticker__label">🔥 Trending Now</span>
+  <div class="ticker__viewport">
+    <div class="ticker__track" id="tickerTrack"></div>
+  </div>
 </div>
 
 <main id="main">
@@ -1062,6 +1107,23 @@ button{ font-family:inherit; }
     document.head.appendChild(script);
   }
 
+  /* ---------------- Trending ticker (featured / multi-image products) ---------------- */
+  function buildTicker(){
+    const bar = document.getElementById('tickerBar');
+    const track = document.getElementById('tickerTrack');
+    if (!bar || !track) return;
+
+    const featured = PRODUCTS.filter(p => mediaPriority(p) === 0);
+    if (!featured.length){ bar.hidden = true; return; }
+
+    const itemHTML = featured.map(p =>
+      `<button type="button" class="ticker__item" onclick="openModal('${p.id}')">🛍️ ${escapeHTML(p.title)}</button><span class="ticker__sep" aria-hidden="true">•</span>`
+    ).join('');
+
+    // Duplicate content once so the CSS animation (translateX -50%) loops seamlessly
+    track.innerHTML = itemHTML + itemHTML;
+  }
+
   /* ---------------- Misc ---------------- */
   document.getElementById('year').textContent = new Date().getFullYear();
   document.getElementById('statCount').textContent = PRODUCTS.length;
@@ -1070,6 +1132,7 @@ button{ font-family:inherit; }
   buildTabs();
   render();
   injectProductJsonLd();
+  buildTicker();
 })();
 </script>
 
