@@ -317,7 +317,7 @@ button{ font-family:inherit; }
   -webkit-appearance:none;
   border-top-left-radius:var(--radius); border-top-right-radius:var(--radius);
 }
-.card__media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.card__media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease, opacity .35s ease; }
 .card__media:hover img, .card__media:focus-visible img{ transform:scale(1.06); }
 .card__media:focus-visible{ outline:3px solid var(--brass); outline-offset:-3px; }
 
@@ -943,9 +943,14 @@ button{ font-family:inherit; }
         // otherwise trigger its onerror fallback and destroy the whole photo card).
         const probe = new Image();
         probe.onload = () => {
-          idx = nextIdx;
-          imgEl.src = images[idx];
-          refreshDots();
+          // Slider-style crossfade: fade out, swap the already-loaded image in, fade back in
+          imgEl.style.opacity = '0';
+          setTimeout(() => {
+            idx = nextIdx;
+            imgEl.src = images[idx];
+            refreshDots();
+            requestAnimationFrame(() => { imgEl.style.opacity = '1'; });
+          }, 350);
         };
         probe.onerror = () => {
           images.splice(nextIdx, 1);
