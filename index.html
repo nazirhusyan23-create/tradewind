@@ -297,6 +297,10 @@ button{ font-family:inherit; }
 }
 .card__badge svg{ width:11px; height:11px; flex:0 0 auto; }
 
+.card__dots{ position:absolute; left:50%; bottom:9px; transform:translateX(-50%); display:flex; gap:4px; z-index:2; }
+.card__dots i{ width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.55); display:block; transition:background .2s ease, transform .2s ease; }
+.card__dots i.active{ background:#fff; transform:scale(1.35); }
+
 .card__title{ font-family:var(--font-display); font-size:1.15rem; line-height:1.2; margin:0; }
 .card--icon .card__title{ padding-right:50px; }
 .card__desc{ font-size:0.87rem; color:var(--ink-text-dim); margin:0; flex:1; }
@@ -747,10 +751,15 @@ button{ font-family:inherit; }
     if (images.length > 1) badges.push(`<span class="card__badge">${ICON_PHOTOS}${images.length}</span>`);
     if (p.video) badges.push(`<span class="card__badge">${ICON_PLAY}Video</span>`);
 
+    const dots = images.length > 1
+      ? `<span class="card__dots" aria-hidden="true">${images.map((_, i) => `<i class="${i === 0 ? 'active' : ''}"></i>`).join('')}</span>`
+      : '';
+
     const mediaBlock = hasPhoto
-      ? `<button type="button" class="card__media" data-cat="${p.category}" data-id="${p.id}" aria-label="Open gallery for ${escapeHTML(p.title)}" onclick="openModal('${p.id}')">
+      ? `<button type="button" class="card__media" data-cat="${p.category}" data-id="${p.id}" data-images='${escapeHTML(JSON.stringify(images))}' aria-label="Open gallery for ${escapeHTML(p.title)}" onclick="openModal('${p.id}')">
           <img src="${images[0]}" alt="${escapeHTML(p.title)} — product photo" loading="lazy" onerror="handleImgError(this)">
           ${badges.length ? `<span class="card__badge-row">${badges.join('')}</span>` : ''}
+          ${dots}
           <span class="card__zoom" aria-hidden="true">${ICON_ZOOM}</span>
         </button>`
       : `<div class="card__icon" aria-hidden="true">${ICONS[p.category] || ''}</div>`;
@@ -813,12 +822,21 @@ button{ font-family:inherit; }
   /* ---------------- Filtering + render ---------------- */
   function getFiltered(){
     const q = activeQuery.trim().toLowerCase();
-    return PRODUCTS.filter(p => {
+    const results = PRODUCTS.filter(p => {
       const matchesCat = activeCategory === 'all' || p.category === activeCategory;
       const haystack = (p.title + ' ' + p.desc + ' ' + p.categoryLabel + ' ' + p.originName).toLowerCase();
       const matchesQuery = q === '' || haystack.includes(q);
       return matchesCat && matchesQuery;
     });
+    // Photo-rich products first (gallery > single photo > icon-only), stable within each tier
+    return results.sort((a, b) => mediaPriority(a) - mediaPriority(b));
+  }
+
+  function mediaPriority(p){
+    const n = getImages(p).length;
+    if (n > 1) return 0;
+    if (n === 1) return 1;
+    return 2;
   }
 
   function render(){
@@ -838,6 +856,42 @@ button{ font-family:inherit; }
       : `Showing ${items.length} of ${PRODUCTS.length} products.`;
 
     updateSEO();
+    startCarousels();
+  }
+
+  /* ---------------- Auto-rotating photo carousels (every 3s, pause on hover/focus) ---------------- */
+  let carouselTimers = [];
+  function startCarousels(){
+    carouselTimers.forEach(t => clearInterval(t));
+    carouselTimers = [];
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    document.querySelectorAll('.card__media[data-images]').forEach(mediaEl => {
+      let images;
+      try { images = JSON.parse(mediaEl.dataset.images); } catch (e) { return; }
+      if (!images || images.length < 2) return;
+
+      const imgEl = mediaEl.querySelector('img');
+      const dotEls = mediaEl.querySelectorAll('.card__dots i');
+      let idx = 0;
+      let paused = false;
+
+      mediaEl.addEventListener('mouseenter', () => { paused = true; });
+      mediaEl.addEventListener('mouseleave', () => { paused = false; });
+      mediaEl.addEventListener('focus', () => { paused = true; });
+      mediaEl.addEventListener('blur', () => { paused = false; });
+
+      const timer = setInterval(() => {
+        if (paused) return;
+        idx = (idx + 1) % images.length;
+        imgEl.src = images[idx];
+        dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }, 3000);
+
+      carouselTimers.push(timer);
+    });
   }
 
   /* ---------------- Progressive SEO metadata ---------------- */
