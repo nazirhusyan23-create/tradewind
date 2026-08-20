@@ -8,15 +8,15 @@
 <meta name="keywords" content="trending gadgets 2026, global tech shopping, curated tech gadgets, best smart home devices, buy gadgets online, worldwide product showcase, tech affiliate store">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0e1524">
-<link rel="canonical" href="https://tradewind-sigma.vercel.app/">
+<link rel="canonical" href="https://your-domain.vercel.app/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TradeWind">
 <meta property="og:title" content="TradeWind — Curated Global Tech Gadgets & Trending Products">
 <meta property="og:description" content="A curated showcase of the world's most in-demand tech gadgets, linked directly to official stores. No checkout, no card details — just discovery.">
-<meta property="og:url" content="https://tradewind-sigma.vercel.app/">
-<meta property="og:image" content="https://tradewind-sigma.vercel.app/og-image.png">
+<meta property="og:url" content="https://your-domain.vercel.app/">
+<meta property="og:image" content="https://your-domain.vercel.app/og-image.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -29,11 +29,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2006445566626425" crossorigin="anonymous"></script>
-
-<!-- Google Search Console site verification -->
-<meta name="google-site-verification" content="9bSXV0oYwCNz4T_QT4-FbvCW3bJShIEgX8HZMbep9Co" />
+<!--
+  ============================================================
+  GOOGLE ADSENSE — uncomment and add your publisher ID once
+  your AdSense account is approved. Leave commented until then.
+  ============================================================
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
 
 <!-- JSON-LD structured data for search engines -->
 <script type="application/ld+json">
@@ -41,11 +43,11 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "TradeWind",
-  "url": "https://tradewind-sigma.vercel.app/",
+  "url": "https://your-domain.vercel.app/",
   "description": "Curated showcase of trending global tech gadgets with direct links to official retail stores.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://tradewind-sigma.vercel.app/?q={search_term_string}",
+    "target": "https://your-domain.vercel.app/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -154,44 +156,6 @@ button{ font-family:inherit; }
 .disclosure-bar strong{ color:var(--brass); font-weight:600; }
 
 /* ============================================================
-   TRENDING TICKER — auto-scrolling headline of featured products
-   ============================================================ */
-.ticker{
-  background:var(--brass); color:var(--ink);
-  display:flex; align-items:stretch; overflow:hidden;
-  border-bottom:1px solid rgba(14,21,36,0.15);
-}
-.ticker__label{
-  flex:0 0 auto; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase;
-  letter-spacing:0.08em; padding:9px 16px; background:var(--ink); color:var(--brass); white-space:nowrap;
-  display:flex; align-items:center; gap:6px;
-}
-.ticker__viewport{ overflow:hidden; flex:1; display:flex; align-items:center; }
-.ticker__track{
-  display:flex; align-items:center; gap:28px; white-space:nowrap; padding:0 24px;
-  animation:tickerScroll 26s linear infinite;
-  width:max-content;
-}
-.ticker:hover .ticker__track, .ticker:focus-within .ticker__track{ animation-play-state:paused; }
-.ticker__item{
-  background:none; border:none; cursor:pointer; font-family:var(--font-mono); font-size:0.76rem; font-weight:600;
-  color:var(--ink); display:inline-flex; align-items:center; gap:6px; padding:9px 0; letter-spacing:0.01em;
-}
-.ticker__item:hover, .ticker__item:focus-visible{ text-decoration:underline; }
-.ticker__sep{ opacity:0.45; }
-
-@keyframes tickerScroll{
-  from{ transform:translateX(0); }
-  to{ transform:translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce){
-  .ticker__track{ animation:none; overflow-x:auto; }
-}
-@media (max-width: 560px){
-  .ticker__label{ padding:9px 10px; font-size:0.64rem; }
-}
-
-/* ============================================================
    HERO
    ============================================================ */
 .hero{ padding:64px 0 48px; position:relative; overflow:hidden; }
@@ -206,41 +170,8 @@ button{ font-family:inherit; }
 .hero__stats b{ display:block; font-family:var(--font-display); font-size:1.5rem; color:var(--ivory); }
 .hero__stats span{ font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ivory-dim); }
 
-.hero-banner{
-  position:relative; width:100%; aspect-ratio:4/3; border-radius:6px; overflow:hidden;
-  background:#0a0f1c; box-shadow:0 20px 50px rgba(0,0,0,0.45);
-}
-.hero-banner__slides{ position:relative; width:100%; height:100%; }
-.hero-banner__slide{
-  position:absolute; inset:0; opacity:0; pointer-events:none;
-  transition:opacity .8s ease;
-}
-.hero-banner__slide.active{ opacity:1; pointer-events:auto; }
-.hero-banner__slide img{ width:100%; height:100%; object-fit:cover; display:block; background:#fff; }
-.hero-banner__overlay{
-  position:absolute; left:0; right:0; bottom:0; padding:18px 20px 20px;
-  background:linear-gradient(to top, rgba(14,21,36,0.95), rgba(14,21,36,0.6) 65%, transparent);
-  color:var(--ivory);
-}
-.hero-banner__eyebrow{ font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:6px; }
-.hero-banner__overlay h3{ font-family:var(--font-display); font-size:1.15rem; margin:0 0 6px; line-height:1.2; }
-.hero-banner__overlay p{ font-size:0.78rem; color:var(--ivory-dim); margin:0 0 12px; max-width:44ch; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.hero-banner__cta{
-  display:inline-flex; align-items:center; gap:6px; background:var(--brass); color:var(--ink);
-  font-family:var(--font-mono); font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;
-  padding:8px 14px; border-radius:18px; border:none; cursor:pointer;
-}
-.hero-banner__cta:hover{ background:#fff; }
-.hero-banner__nav{
-  position:absolute; top:44%; transform:translateY(-50%); width:34px; height:34px; border-radius:50%;
-  background:rgba(14,21,36,0.55); color:#fff; border:none; cursor:pointer; font-size:1.2rem; line-height:1;
-  display:flex; align-items:center; justify-content:center; z-index:3; transition:background .15s;
-}
-.hero-banner__nav:hover{ background:var(--brass-dim); }
-.hero-banner__nav--prev{ left:10px; } .hero-banner__nav--next{ right:10px; }
-.hero-banner__dots{ position:absolute; top:12px; right:14px; display:flex; gap:5px; z-index:3; }
-.hero-banner__dots i{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.5); display:block; cursor:pointer; transition:background .2s, width .2s; }
-.hero-banner__dots i.active{ background:var(--brass); width:16px; border-radius:4px; }
+.hero__art{ position:relative; }
+.hero__art svg{ width:100%; height:auto; }
 
 /* ============================================================
    AD SLOTS (AdSense-ready placeholders)
@@ -304,7 +235,7 @@ button{ font-family:inherit; }
   background:var(--paper);
   color:var(--ink-text);
   border-radius:var(--radius);
-  padding:20px;
+  padding:26px 20px 20px 34px;
   box-shadow:0 10px 24px rgba(0,0,0,0.28);
   display:flex; flex-direction:column; gap:12px;
   transform:rotate(0deg);
@@ -314,8 +245,6 @@ button{ font-family:inherit; }
 .card:hover, .card:focus-within{ transform:rotate(-0.6deg) translateY(-3px); box-shadow:0 16px 30px rgba(0,0,0,0.35); }
 @keyframes cardIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:translateY(0); } }
 
-/* Icon-only cards (no photo) keep the cargo-tag grommet hole + left indent */
-.card--icon{ padding:26px 20px 20px 34px; }
 .card__hole{
   position:absolute; top:16px; left:14px; width:13px; height:13px; border-radius:50%;
   background:var(--ink); border:2px solid var(--brass);
@@ -324,9 +253,8 @@ button{ font-family:inherit; }
 .stamp{
   position:absolute; top:14px; right:14px; width:56px; height:56px; border-radius:50%;
   border:2px solid var(--brass-dim); outline:1px dashed var(--brass-dim); outline-offset:3px;
-  background:rgba(236,231,218,0.95);
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  transform:rotate(-9deg); color:var(--verdigris); z-index:3;
+  transform:rotate(-9deg); color:var(--verdigris);
 }
 .stamp__code{ font-family:var(--font-mono); font-weight:700; font-size:0.85rem; line-height:1; }
 .stamp__cat{ font-family:var(--font-mono); font-size:0.5rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-text-dim); }
@@ -334,46 +262,7 @@ button{ font-family:inherit; }
 .card__icon{ width:36px; height:36px; color:var(--brass-dim); }
 .card__icon svg{ width:100%; height:100%; }
 
-/* ---- High-res product media (photo cards) ---- */
-.card__media{
-  position:relative;
-  margin:-20px -20px 4px -20px;
-  aspect-ratio:4/3;
-  background:#fff;
-  overflow:hidden;
-  cursor:zoom-in;
-  border:none;
-  padding:0;
-  display:block;
-  font:inherit;
-  appearance:none;
-  -webkit-appearance:none;
-  border-top-left-radius:var(--radius); border-top-right-radius:var(--radius);
-}
-.card__media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease, opacity .35s ease; }
-.card__media:hover img, .card__media:focus-visible img{ transform:scale(1.06); }
-.card__media:focus-visible{ outline:3px solid var(--brass); outline-offset:-3px; }
-
-.card__zoom{
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  background:rgba(14,21,36,0); transition:background .2s ease; opacity:0; pointer-events:none;
-}
-.card__media:hover .card__zoom, .card__media:focus-visible .card__zoom{ opacity:1; background:rgba(14,21,36,0.28); }
-.card__zoom svg{ width:32px; height:32px; color:#fff; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.45)); }
-
-.card__badge-row{ position:absolute; left:9px; bottom:9px; display:flex; gap:6px; z-index:2; }
-.card__badge{
-  background:rgba(14,21,36,0.78); color:var(--ivory); font-family:var(--font-mono); font-size:0.62rem;
-  padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; letter-spacing:0.02em;
-}
-.card__badge svg{ width:11px; height:11px; flex:0 0 auto; }
-
-.card__dots{ position:absolute; left:50%; bottom:9px; transform:translateX(-50%); display:flex; gap:4px; z-index:2; }
-.card__dots i{ width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.55); display:block; transition:background .2s ease, transform .2s ease; }
-.card__dots i.active{ background:#fff; transform:scale(1.35); }
-
-.card__title{ font-family:var(--font-display); font-size:1.15rem; line-height:1.2; margin:0; }
-.card--icon .card__title{ padding-right:50px; }
+.card__title{ font-family:var(--font-display); font-size:1.15rem; line-height:1.2; padding-right:50px; margin:0; }
 .card__desc{ font-size:0.87rem; color:var(--ink-text-dim); margin:0; flex:1; }
 
 .card__meta{
@@ -384,72 +273,21 @@ button{ font-family:inherit; }
 .card__meta dt{ font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-text-dim); }
 .card__meta dd{ margin:0; font-family:var(--font-mono); font-weight:600; }
 
-.card__footer{ display:flex; flex-direction:column; gap:10px; padding-top:12px; border-top:1px dashed var(--paper-dim); }
-.card__footer-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.card__footer{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:12px; border-top:1px dashed var(--paper-dim); }
 .card__price{ font-family:var(--font-display); font-size:1.3rem; color:var(--danger); }
 .card__price small{ display:block; font-family:var(--font-mono); font-size:0.6rem; color:var(--ink-text-dim); text-transform:uppercase; }
-.card__actions{ display:flex; gap:8px; }
-.card__actions .btn{ flex:1; justify-content:center; }
 
 .btn{
   display:inline-flex; align-items:center; gap:6px;
   background:var(--ink); color:var(--ivory); text-decoration:none;
   font-family:var(--font-mono); font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
-  padding:11px 14px; border-radius:20px; white-space:nowrap; border:none; cursor:pointer;
+  padding:11px 14px; border-radius:20px; white-space:nowrap;
   transition:background .15s, transform .15s;
 }
 .btn:hover, .btn:focus-visible{ background:var(--brass-dim); transform:translateX(2px); }
-.btn--ghost{ background:transparent; color:var(--ink-text); border:1px solid rgba(14,21,36,0.28); }
-.btn--ghost:hover, .btn--ghost:focus-visible{ background:rgba(14,21,36,0.06); color:var(--ink-text); transform:none; }
 
 .empty-state{ text-align:center; padding:60px 20px; color:var(--ivory-dim); display:none; }
 .empty-state.show{ display:block; }
-
-/* ============================================================
-   QUICK-VIEW MODAL (gallery + video)
-   ============================================================ */
-.modal-overlay{
-  position:fixed; inset:0; background:rgba(14,21,36,0.85); backdrop-filter:blur(2px);
-  display:flex; align-items:center; justify-content:center; padding:20px; z-index:200;
-}
-.modal-overlay[hidden]{ display:none; }
-.modal{
-  background:var(--paper); color:var(--ink-text); max-width:960px; width:100%; max-height:92vh; overflow:auto;
-  border-radius:6px; display:grid; grid-template-columns:1.15fr 1fr; position:relative;
-  box-shadow:0 30px 70px rgba(0,0,0,0.55);
-}
-.modal__close{
-  position:absolute; top:12px; right:12px; width:38px; height:38px; border-radius:50%; border:none;
-  background:var(--ink); color:var(--ivory); font-size:1.4rem; line-height:1; cursor:pointer; z-index:6;
-  display:flex; align-items:center; justify-content:center;
-}
-.modal__close:hover{ background:var(--brass-dim); }
-.modal__media{ background:#fff; display:flex; flex-direction:column; min-width:0; }
-.modal__stage{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#fff; }
-.modal__stage img{ width:100%; height:100%; object-fit:contain; }
-.modal__stage video, .modal__stage iframe{ width:100%; height:100%; object-fit:contain; border:0; }
-.modal__nav{
-  position:absolute; top:50%; transform:translateY(-50%); background:rgba(14,21,36,0.6); color:#fff; border:none;
-  width:38px; height:38px; border-radius:50%; cursor:pointer; font-size:1.3rem; display:flex; align-items:center; justify-content:center;
-}
-.modal__nav:hover{ background:var(--brass-dim); }
-.modal__nav--prev{ left:10px; } .modal__nav--next{ right:10px; }
-.modal__thumbs{ display:flex; gap:8px; padding:12px; overflow-x:auto; border-top:1px solid var(--paper-dim); }
-.modal__thumb{
-  width:56px; height:56px; border-radius:4px; overflow:hidden; border:2px solid transparent; cursor:pointer;
-  flex:0 0 auto; background:#f3f3f3; padding:0; display:flex; align-items:center; justify-content:center; color:var(--ink-text);
-}
-.modal__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-.modal__thumb.active{ border-color:var(--brass); }
-.modal__info{ padding:30px 28px; display:flex; flex-direction:column; gap:12px; min-width:0; }
-.modal__info h3{ font-size:1.45rem; line-height:1.2; }
-.modal__info p{ font-size:0.92rem; color:var(--ink-text-dim); margin:0; }
-.modal__footer{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:16px; border-top:1px dashed var(--paper-dim); }
-
-@media (max-width: 720px){
-  .modal{ grid-template-columns:1fr; }
-  .modal__stage{ aspect-ratio:4/3; }
-}
 
 /* ============================================================
    ABOUT / SEO OVERVIEW
@@ -491,7 +329,7 @@ button{ font-family:inherit; }
    ============================================================ */
 @media (max-width: 860px){
   .hero__grid{ grid-template-columns:1fr; }
-  .hero-banner{ order:-1; max-width:100%; margin:0 auto 24px; aspect-ratio:16/10; }
+  .hero__art{ order:-1; max-width:280px; margin:0 auto 24px; }
   .about__grid{ grid-template-columns:1fr; }
   .footer__grid{ grid-template-columns:1fr; }
   .header-main{ padding:12px 0; }
@@ -501,7 +339,7 @@ button{ font-family:inherit; }
   .hero{ padding:40px 0 32px; }
   .hero__stats{ flex-wrap:wrap; }
   .hero__stats div{ flex:1 1 45%; border-right:none; padding:12px 0 0; border-top:1px dashed rgba(200,155,60,0.25); margin-top:8px; }
-  .card--icon{ padding-left:30px; }
+  .card{ padding-left:30px; }
 }
 </style>
 </head>
@@ -531,13 +369,6 @@ button{ font-family:inherit; }
   <strong>Affiliate Disclosure:</strong> TradeWind may earn a commission from qualifying purchases made through links on this site, at no extra cost to you.
 </div>
 
-<div class="ticker" id="tickerBar" aria-label="Trending featured products">
-  <span class="ticker__label">🔥 Trending Now</span>
-  <div class="ticker__viewport">
-    <div class="ticker__track" id="tickerTrack"></div>
-  </div>
-</div>
-
 <main id="main">
 
   <!-- ============================================================
@@ -556,11 +387,20 @@ button{ font-family:inherit; }
           <div><b>0</b><span>Checkouts on Site</span></div>
         </div>
       </div>
-      <div class="hero-banner" id="heroBanner" aria-label="Featured products">
-        <div class="hero-banner__slides" id="heroBannerSlides"></div>
-        <button type="button" class="hero-banner__nav hero-banner__nav--prev" id="heroBannerPrev" aria-label="Previous featured product">‹</button>
-        <button type="button" class="hero-banner__nav hero-banner__nav--next" id="heroBannerNext" aria-label="Next featured product">›</button>
-        <div class="hero-banner__dots" id="heroBannerDots"></div>
+      <div class="hero__art" aria-hidden="true">
+        <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="160" cy="160" r="120" stroke="#c89b3c" stroke-width="1.5" stroke-dasharray="4 6"/>
+          <circle cx="160" cy="160" r="90" stroke="#4f8f86" stroke-width="1"/>
+          <circle cx="160" cy="160" r="6" fill="#c89b3c"/>
+          <path d="M160 40 V280 M40 160 H280" stroke="#c89b3c" stroke-width="0.75" stroke-dasharray="2 5"/>
+          <path d="M92 92 Q160 160 228 92" stroke="#f2efe6" stroke-width="1" opacity="0.5"/>
+          <path d="M92 228 Q160 160 228 228" stroke="#f2efe6" stroke-width="1" opacity="0.5"/>
+          <polygon points="160,60 150,90 170,90" fill="#c89b3c"/>
+          <text x="160" y="34" text-anchor="middle" fill="#b9c0d1" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">N</text>
+          <text x="160" y="300" text-anchor="middle" fill="#b9c0d1" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">S</text>
+          <text x="30" y="164" text-anchor="middle" fill="#b9c0d1" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">W</text>
+          <text x="290" y="164" text-anchor="middle" fill="#b9c0d1" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2">E</text>
+        </svg>
       </div>
     </div>
 
@@ -680,29 +520,6 @@ button{ font-family:inherit; }
   </div>
 </footer>
 
-<!-- ============================================================
-     QUICK-VIEW MODAL — image gallery + video, built once, reused
-     ============================================================ -->
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-  <div class="modal">
-    <button class="modal__close" id="modalClose" type="button" aria-label="Close quick view">&times;</button>
-    <div class="modal__media">
-      <div class="modal__stage" id="modalStage"></div>
-      <div class="modal__thumbs" id="modalThumbs"></div>
-    </div>
-    <div class="modal__info">
-      <p class="eyebrow" id="modalCategory"></p>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDesc"></p>
-      <dl class="card__meta" id="modalMeta"></dl>
-      <div class="modal__footer">
-        <span class="card__price" id="modalPrice"></span>
-        <a class="btn" id="modalBuyBtn" href="#" target="_blank" rel="noopener noreferrer sponsored">View on Official Store →</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
 (function(){
   "use strict";
@@ -713,46 +530,35 @@ button{ font-family:inherit; }
      (Amazon Associates tag, ShareASale, CJ, Impact, etc.)
      ============================================================ */
   const PRODUCTS = [
-    { id:"p01", title:"Aqara Smart Hub M3", category:"smart-home", categoryLabel:"Smart Home", origin:"CN", originName:"China", sku:"SH-3301", price:"$59.99", desc:"Matter-ready hub that ties together locks, sensors, and lighting from multiple brands into one fast local network.", link:"https://www.amazon.com/s?k=Aqara+Smart+Hub+M3&linkCode=ll2&tag=tradewind20-20&linkId=2dcbbb39d6084fff613826eb0e3d8f9e&language=en_US&ref_=as_li_ss_tl" },
-    { id:"p02", title:"Philips Hue Gradient Lightstrip", category:"smart-home", categoryLabel:"Smart Home", origin:"NL", originName:"Netherlands", sku:"SH-3302", price:"$89.99", desc:"Multi-zone color-blending backlight strip designed for TVs and desks, controllable by app or voice assistant.", link:"https://www.amazon.com/s?k=Philips+Hue+Gradient+Lightstrip&tag=tradewind20-20" },
-    { id:"p03", title:"Sony WH-1000XM5", category:"audio", categoryLabel:"Audio", origin:"JP", originName:"Japan", sku:"AU-1101", price:"$349.99", desc:"Flagship over-ear noise-cancelling headphones with all-day comfort and industry-leading call clarity.", link:"https://www.amazon.com/s?k=Sony+WH-1000XM5&tag=tradewind20-20" },
-    { id:"p04", title:"Sonos Era 300", category:"audio", categoryLabel:"Audio", origin:"US", originName:"United States", sku:"AU-1102", price:"$449.00", desc:"Spatial-audio smart speaker built for Dolby Atmos music with room-filling, multi-driver sound.", link:"https://www.amazon.com/s?k=Sonos+Era+300&tag=tradewind20-20" },
-    { id:"p05", title:"Garmin Fenix 8", category:"wearables", categoryLabel:"Wearables", origin:"US", originName:"United States", sku:"WB-2201", price:"$799.99", desc:"Rugged multisport GPS smartwatch with solar charging, offline maps, and multi-week battery life.", link:"https://www.amazon.com/s?k=Garmin+Fenix+8&tag=tradewind20-20" },
-    { id:"p06", title:"Oura Ring Gen 4", category:"wearables", categoryLabel:"Wearables", origin:"FI", originName:"Finland", sku:"WB-2202", price:"$349.00", desc:"Titanium smart ring that tracks sleep stages, recovery, and readiness without a screen or strap.", link:"https://www.amazon.com/s?k=Oura+Ring+Gen+4&tag=tradewind20-20" },
-    { id:"p07", title:"DJI Osmo Pocket 3", category:"photography", categoryLabel:"Photography", origin:"CN", originName:"China", sku:"PH-3101", price:"$519.00", desc:"Pocket-sized gimbal camera with a 1-inch sensor and a rotating touchscreen built for vertical video.", link:"https://www.amazon.com/s?k=DJI+Osmo+Pocket+3&tag=tradewind20-20" },
-    { id:"p08", title:"Insta360 X4", category:"photography", categoryLabel:"Photography", origin:"CN", originName:"China", sku:"PH-3102", price:"$499.99", desc:"8K 360° action camera that lets you reframe every shot after filming, built for travel and sports.", link:"https://www.amazon.com/s?k=Insta360+X4&tag=tradewind20-20" },
-    { id:"p09", title:"Logitech MX Master 4", category:"computing", categoryLabel:"Computing", origin:"CH", originName:"Switzerland", sku:"CP-4401", price:"$119.99", desc:"Precision ergonomic mouse with an electromagnetic scroll wheel and multi-device Flow switching.", link:"https://www.amazon.com/s?k=Logitech+MX+Master+4&tag=tradewind20-20" },
-    { id:"p10", title:"Anker 737 GaN Power Bank", category:"computing", categoryLabel:"Computing", origin:"CN", originName:"China", sku:"CP-4402", price:"$99.99", desc:"140W high-capacity power bank with a live display, fast enough to charge a laptop from empty.", link:"https://www.amazon.com/s?k=Anker+737+Power+Bank&tag=tradewind20-20" },
-    { id:"p11", title:"Breville Barista Touch Impress", category:"kitchen", categoryLabel:"Kitchen Tech", origin:"AU", originName:"Australia", sku:"KT-5501", price:"$1,399.95", desc:"Automatic milk-texturing espresso machine with a touchscreen and built-in grinder dosing.", link:"https://www.amazon.com/s?k=Breville+Barista+Touch+Impress&tag=tradewind20-20" },
-    { id:"p12", title:"Ninja Creami Deluxe", category:"kitchen", categoryLabel:"Kitchen Tech", origin:"US", originName:"United States", sku:"KT-5502", price:"$229.99", desc:"Countertop ice cream and sorbet maker that spins frozen bases into soft-serve texture in minutes.", link:"https://www.amazon.com/s?k=Ninja+Creami+Deluxe&tag=tradewind20-20" },
-    { id:"p13", title:"Nomatic Travel Backpack 30L", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6601", price:"$249.99", desc:"Modular carry-on backpack with a dedicated laptop sleeve, packing cubes, and reinforced weatherproof shell.", link:"https://www.amazon.com/s?k=Nomatic+Travel+Backpack+30L&tag=tradewind20-20" },
-    { id:"p14", title:"Bose QuietComfort Ultra Earbuds", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6602", price:"$299.00", desc:"Compact true-wireless earbuds with immersive spatial audio and best-in-class active noise cancellation.", link:"https://www.amazon.com/s?k=Bose+QuietComfort+Ultra+Earbuds&tag=tradewind20-20" },
-    { id:"p15", title:"Leatherman Free P4", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7701", price:"$139.95", desc:"21-tool magnetic multi-tool that opens one-handed, built from premium stainless steel for daily carry.", link:"https://www.amazon.com/s?k=Leatherman+Free+P4&tag=tradewind20-20" },
-    { id:"p16", title:"Goal Zero Yeti 500", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7702", price:"$399.95", desc:"Portable lithium power station with AC, USB-C PD, and 12V outputs for camping, vanlife, or backup power.", link:"https://www.amazon.com/s?k=Goal+Zero+Yeti+500&tag=tradewind20-20" },
-    { id:"p17", title:"JcBlaon 6-Outlet Surge Protector", category:"smart-home", categoryLabel:"Smart Home", origin:"CN", originName:"China", sku:"SH-3303", price:"$12.59", desc:"Wall-mount outlet extender with 6 spaced surge-protected sockets, a USB charging slot, light indicator, and a lightweight mountable design that turns one outlet into six.", image:"https://m.media-amazon.com/images/I/61VyzebJdYL._AC_SY300_SX300_QL70_FMwebp_.jpg", link:"https://www.amazon.com/Outlet-Extender-Adapter-Charging-Spaced/dp/B0F2YCGJGR?crid=12UUYY1O9YSD4&dib=eyJ2IjoiMSJ9.ieSyXcgpIBsWBIQVXn2dY50Zcs2p4zZQJOXv-DDDKfqG2fqQrini8rO7dyFa0R2UfbRhfPj5HFSNH0dzMLpPFEBJxHUuBf7AQdfBK2XnV2VN6F80AkaYd9UoGFGJ78N_E9G7e5YAgGDityLDH7duRTbLtka-Eq0rnEjItNycoKXsrEaovTPu3rsUo732XM-eh18XusqJaLbCsGOk7UUIuzdHMpASi2wivxbcvHkX6GqAUEqODymFzdURNQCOESqh7FsoVVKtPzFXmmX3LP_z22JdtL2LZ3KHmIbW5Xc47lU.f8vX0blLWjiWvi1g0QqD9FjzCKdRUfiVxex96jhMm9U&dib_tag=se&keywords=Smart%2BPlugs&qid=1786805732&sprefix=smart%2Bplugs%2Caps%2C689&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=tradewind20-20&linkId=ca599137814701ddaf3f17060dd8893c&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" },
-    { id:"p18", title:"Philips Smart Plug (Google Assistant Compatible)", category:"smart-home", categoryLabel:"Smart Home", origin:"NL", originName:"Netherlands", sku:"SH-3304", price:"See Price", desc:"Compact white smart plug that connects your existing lamps and appliances to voice control and automations via Google Assistant, in a slim 1.5\" x 2.6\" x 2.13\" plastic housing rated for 125V.", image:"https://m.media-amazon.com/images/I/71%2BQlFGVtgL._AC_SL1500_.jpg", link:"https://www.amazon.com/Philips-Lighting-Automations-Connected-Google/dp/B0H3161BYF?crid=12UUYY1O9YSD4&dib=eyJ2IjoiMSJ9.ieSyXcgpIBsWBIQVXn2dY50Zcs2p4zZQJOXv-DDDKfqG2fqQrini8rO7dyFa0R2UfbRhfPj5HFSNH0dzMLpPFEBJxHUuBf7AQdfBK2XnV2VN6F80AkaYd9UoGFGJ78N_rPwGG2YWbP91zUN6wp9D3zs33UO5IeMpMjGilOximvL8ElajOYCm_V_g2vLXgNaGPjSR0F0utJZgZFU_u8tch27-TpyfNSpWl2vsU7tgChZGBQKIrq4hi_CtGQOjV6S-AGQSj0ArT7wlPG476F-yuRn9oAL1U6KrIUEQsXaPk9Y.jtyUTU4hZIn5DIgE9sZqvSWOazV9D3__JyNKmXI47jI&dib_tag=se&keywords=Smart%2BPlugs&qid=1786807972&sprefix=smart%2Bplugs%2Caps%2C689&sr=8-5-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=tradewind20-20&linkId=47d22fa47b42aad49b3058014c7cbe24&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" },
-    { id:"p19", title:"Ring Outdoor Smart Plug", category:"smart-home", categoryLabel:"Smart Home", origin:"US", originName:"United States", sku:"SH-3305", price:"See Price", desc:"Weatherproof outdoor smart plug that lets you control string lights, holiday decorations, and other outdoor devices from the Ring app or with voice commands, rain or shine.", image:"https://m.media-amazon.com/images/I/61XeX7c24OL._SL1000_.jpg", link:"https://www.amazon.com/Ring-Outdoor-Smart-Plug/dp/B08KSJ56WR?crid=12UUYY1O9YSD4&dib=eyJ2IjoiMSJ9.ieSyXcgpIBsWBIQVXn2dY50Zcs2p4zZQJOXv-DDDKfqG2fqQrini8rO7dyFa0R2UfbRhfPj5HFSNH0dzMLpPFEBJxHUuBf7AQdfBK2XnV2VN6F80AkaYd9UoGFGJ78N_rPwGG2YWbP91zUN6wp9D3zs33UO5IeMpMjGilOximvL8ElajOYCm_V_g2vLXgNaGPjSR0F0utJZgZFU_u8tch27-TpyfNSpWl2vsU7tgChZGBQKIrq4hi_CtGQOjV6S-AGQSj0ArT7wlPG476F-yuRn9oAL1U6KrIUEQsXaPk9Y.jtyUTU4hZIn5DIgE9sZqvSWOazV9D3__JyNKmXI47jI&dib_tag=se&keywords=Smart+Plugs&qid=1786807972&sprefix=smart+plugs%2Caps%2C689&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&linkCode=ll2&tag=tradewind20-20&linkId=5f5c823ff5f229b79616935b97eba706&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" },
-    { id:"p20", title:"Kasa Smart Plug Ultra Mini 15A (2-Pack)", category:"smart-home", categoryLabel:"Smart Home", origin:"CN", originName:"China", sku:"SH-3306", price:"See Price", desc:"Ultra-compact 15A Wi-Fi smart plugs that work with Alexa and Google Home, no hub required, UL certified, sold as a 2-pack for outlets throughout the home.", image:"https://m.media-amazon.com/images/I/51c%2B0pl9KvS._SL1500_.jpg", link:"https://www.amazon.com/Kasa-Smart-Required-Certified-EP10P2/dp/B091FXQQMQ?th=1&linkCode=ll2&tag=tradewind20-20&linkId=3deaf67358294714a66670da11f05465&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" },
-    { id:"p21", title:"UGREEN Uno 65W 3-Port USB-C GaN Charger", category:"computing", categoryLabel:"Computing", origin:"CN", originName:"China", sku:"CP-4403", price:"See Price", desc:"Compact 65W GaN fast-charging block with a playful robot-face LED display and 3 ports, fast enough for MacBooks, iPhones, Galaxy phones, iPads, and Steam Deck.", images:["https://m.media-amazon.com/images/I/61WrdeLU9YL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71dyWpOoGVL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71gc89XkzjL._AC_SL1500_.jpg"], link:"https://www.amazon.com/dp/B0C6DX66TN?tag=tradewind20-20" },
-    { id:"p22", title:"Keurig K-Express Single Serve Coffee Maker (Lavender)", category:"kitchen", categoryLabel:"Kitchen Tech", origin:"US", originName:"United States", sku:"KT-5503", price:"See Price", desc:"Single-serve K-Cup pod coffee maker with 3 brew sizes, a Strong button for bolder flavor, and a 42oz removable water reservoir, in a soft lavender finish.", images:["https://m.media-amazon.com/images/I/61EYOwoAr3L._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71jguUGLzsL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71PidmoMMnL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/615iSJj-zYL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71atpLlROcL._AC_SL1500_.jpg"], link:"https://www.amazon.com/Keurig-K-Express-Removable-Reservoir-Lavender/dp/B0DWBJ6CM1?th=1&linkCode=ll2&tag=tradewind20-20&linkId=e1c506cb3dc2e581f30c36381399445c&language=en_US&gaOptInStatus=true&ref_=as_li_ss_tl" },
-    { id:"p23", title:"LARQ Bottle PureVis 2", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7703", price:"See Price", desc:"Self-cleaning water bottle with a built-in UV-C LED in the cap that automatically zaps bacteria in the water and inner walls every two hours, insulated and waterproof.", images:["https://m.media-amazon.com/images/I/71mmVS1Fx6L._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71M67INTc8L._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/61-jUnPHXbL._AC_SY300_SX300_QL70_FMwebp_.jpg","https://m.media-amazon.com/images/I/61XKPxwYoEL._AC_SX679_.jpg"], link:"https://www.amazon.com/s?k=LARQ+Bottle+PureVis+2&tag=tradewind20-20" },
-    { id:"p24", title:"Hatch Restore 3", category:"smart-home", categoryLabel:"Smart Home", origin:"US", originName:"United States", sku:"SH-3307", price:"See Price", desc:"Sunrise alarm clock and sound machine that wakes you with gradually brightening light instead of a jarring tone, with built-in soundscapes for winding down at night.", images:["https://m.media-amazon.com/images/I/81pkM5yQHoL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71A8yasZBnL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/41fmGvc9foL._AC_.jpg","https://m.media-amazon.com/images/I/71lVD-95vrL._AC_SL1500_.jpg"], link:"https://www.amazon.com/s?k=Hatch+Restore+3&tag=tradewind20-20" },
-    { id:"p25", title:"Pebble Round 2", category:"wearables", categoryLabel:"Wearables", origin:"US", originName:"United States", sku:"WB-2203", price:"See Price", desc:"Revived Pebble smartwatch with a 1.3-inch always-on e-paper display, week-plus battery life, and a minimalist, distraction-free approach to notifications and fitness tracking.", images:["https://m.media-amazon.com/images/I/71XpjL4qkPL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71%2BrGZ1ENSL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71-Bc3KaY3L._AC_SY300_SX300_QL70_FMwebp_.jpg","https://m.media-amazon.com/images/I/61W2r0zh3fL._AC_SY300_SX300_QL70_FMwebp_.jpg"], link:"https://www.amazon.com/s?k=Pebble+Round+2+smartwatch&tag=tradewind20-20" },
-    { id:"p26", title:"iFi Go Link 2", category:"audio", categoryLabel:"Audio", origin:"GB", originName:"United Kingdom", sku:"AU-1103", price:"See Price", desc:"Pocket-sized USB-C DAC and headphone amplifier dongle that plugs into a phone or laptop to noticeably upgrade wired headphone sound, ideal for devices without a headphone jack.", images:["https://m.media-amazon.com/images/I/71UJ3662MqL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/61uLxdt3JXL._SX522_.jpg","https://m.media-amazon.com/images/I/81t923q63oL._AC_SL1500_.jpg"], link:"https://www.amazon.com/s?k=iFi+Go+Link+2&tag=tradewind20-20" },
-    { id:"p27", title:"Rolling Square AirCard Pro Dual", category:"travel", categoryLabel:"Travel Gear", origin:"CH", originName:"Switzerland", sku:"TR-6603", price:"See Price", desc:"Credit-card-thin Bluetooth tracker that works with both Apple Find My and Google Find My Device networks, slim enough to slide into a wallet for trip-proof peace of mind.", images:["https://m.media-amazon.com/images/I/81tBKn9s-iL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/71j422lAvwL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/41XU0s3zLpL._SX342_SY445_QL70_FMwebp_.jpg"], link:"https://www.amazon.com/s?k=Rolling+Square+AirCard+Pro+Dual&tag=tradewind20-20" }
+    { id:"p01", title:"Aqara Smart Hub M3", category:"smart-home", categoryLabel:"Smart Home", origin:"CN", originName:"China", sku:"SH-3301", price:"$59.99", desc:"Matter-ready hub that ties together locks, sensors, and lighting from multiple brands into one fast local network.", link:"https://www.amazon.com/s?k=Aqara+Smart+Hub+M3&tag=youraffiliateid-20" },
+    { id:"p02", title:"Philips Hue Gradient Lightstrip", category:"smart-home", categoryLabel:"Smart Home", origin:"NL", originName:"Netherlands", sku:"SH-3302", price:"$89.99", desc:"Multi-zone color-blending backlight strip designed for TVs and desks, controllable by app or voice assistant.", link:"https://www.amazon.com/s?k=Philips+Hue+Gradient+Lightstrip&tag=youraffiliateid-20" },
+    { id:"p03", title:"Sony WH-1000XM5", category:"audio", categoryLabel:"Audio", origin:"JP", originName:"Japan", sku:"AU-1101", price:"$349.99", desc:"Flagship over-ear noise-cancelling headphones with all-day comfort and industry-leading call clarity.", link:"https://www.amazon.com/s?k=Sony+WH-1000XM5&tag=youraffiliateid-20" },
+    { id:"p04", title:"Sonos Era 300", category:"audio", categoryLabel:"Audio", origin:"US", originName:"United States", sku:"AU-1102", price:"$449.00", desc:"Spatial-audio smart speaker built for Dolby Atmos music with room-filling, multi-driver sound.", link:"https://www.amazon.com/s?k=Sonos+Era+300&tag=youraffiliateid-20" },
+    { id:"p05", title:"Garmin Fenix 8", category:"wearables", categoryLabel:"Wearables", origin:"US", originName:"United States", sku:"WB-2201", price:"$799.99", desc:"Rugged multisport GPS smartwatch with solar charging, offline maps, and multi-week battery life.", link:"https://www.amazon.com/s?k=Garmin+Fenix+8&tag=youraffiliateid-20" },
+    { id:"p06", title:"Oura Ring Gen 4", category:"wearables", categoryLabel:"Wearables", origin:"FI", originName:"Finland", sku:"WB-2202", price:"$349.00", desc:"Titanium smart ring that tracks sleep stages, recovery, and readiness without a screen or strap.", link:"https://www.amazon.com/s?k=Oura+Ring+Gen+4&tag=youraffiliateid-20" },
+    { id:"p07", title:"DJI Osmo Pocket 3", category:"photography", categoryLabel:"Photography", origin:"CN", originName:"China", sku:"PH-3101", price:"$519.00", desc:"Pocket-sized gimbal camera with a 1-inch sensor and a rotating touchscreen built for vertical video.", link:"https://www.amazon.com/s?k=DJI+Osmo+Pocket+3&tag=youraffiliateid-20" },
+    { id:"p08", title:"Insta360 X4", category:"photography", categoryLabel:"Photography", origin:"CN", originName:"China", sku:"PH-3102", price:"$499.99", desc:"8K 360° action camera that lets you reframe every shot after filming, built for travel and sports.", link:"https://www.amazon.com/s?k=Insta360+X4&tag=youraffiliateid-20" },
+    { id:"p09", title:"Logitech MX Master 4", category:"computing", categoryLabel:"Computing", origin:"CH", originName:"Switzerland", sku:"CP-4401", price:"$119.99", desc:"Precision ergonomic mouse with an electromagnetic scroll wheel and multi-device Flow switching.", link:"https://www.amazon.com/s?k=Logitech+MX+Master+4&tag=youraffiliateid-20" },
+    { id:"p10", title:"Anker 737 GaN Power Bank", category:"computing", categoryLabel:"Computing", origin:"CN", originName:"China", sku:"CP-4402", price:"$99.99", desc:"140W high-capacity power bank with a live display, fast enough to charge a laptop from empty.", link:"https://www.amazon.com/s?k=Anker+737+Power+Bank&tag=youraffiliateid-20" },
+    { id:"p11", title:"Breville Barista Touch Impress", category:"kitchen", categoryLabel:"Kitchen Tech", origin:"AU", originName:"Australia", sku:"KT-5501", price:"$1,399.95", desc:"Automatic milk-texturing espresso machine with a touchscreen and built-in grinder dosing.", link:"https://www.amazon.com/s?k=Breville+Barista+Touch+Impress&tag=youraffiliateid-20" },
+    { id:"p12", title:"Ninja Creami Deluxe", category:"kitchen", categoryLabel:"Kitchen Tech", origin:"US", originName:"United States", sku:"KT-5502", price:"$229.99", desc:"Countertop ice cream and sorbet maker that spins frozen bases into soft-serve texture in minutes.", link:"https://www.amazon.com/s?k=Ninja+Creami+Deluxe&tag=youraffiliateid-20" },
+    { id:"p13", title:"Nomatic Travel Backpack 30L", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6601", price:"$249.99", desc:"Modular carry-on backpack with a dedicated laptop sleeve, packing cubes, and reinforced weatherproof shell.", link:"https://www.amazon.com/s?k=Nomatic+Travel+Backpack+30L&tag=youraffiliateid-20" },
+    { id:"p14", title:"Bose QuietComfort Ultra Earbuds", category:"travel", categoryLabel:"Travel Gear", origin:"US", originName:"United States", sku:"TR-6602", price:"$299.00", desc:"Compact true-wireless earbuds with immersive spatial audio and best-in-class active noise cancellation.", link:"https://www.amazon.com/s?k=Bose+QuietComfort+Ultra+Earbuds&tag=youraffiliateid-20" },
+    { id:"p15", title:"Leatherman Free P4", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7701", price:"$139.95", desc:"21-tool magnetic multi-tool that opens one-handed, built from premium stainless steel for daily carry.", link:"https://www.amazon.com/s?k=Leatherman+Free+P4&tag=youraffiliateid-20" },
+    { id:"p16", title:"Goal Zero Yeti 500", category:"outdoor", categoryLabel:"Outdoor & EDC", origin:"US", originName:"United States", sku:"OD-7702", price:"$399.95", desc:"Portable lithium power station with AC, USB-C PD, and 12V outputs for camping, vanlife, or backup power.", link:"https://www.amazon.com/s?k=Goal+Zero+Yeti+500&tag=youraffiliateid-20" }
   ];
 
   const CATEGORY_ORDER = ["smart-home","audio","wearables","photography","computing","kitchen","travel","outdoor"];
 
   const ICONS = {
-    "smart-home": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4f8f86"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><path d="M18 34 L32 21 L46 34" fill="none" stroke="#0e1524" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 32 V47 H42 V32" fill="#f2efe6" stroke="#0e1524" stroke-width="2"/><rect x="28" y="37" width="8" height="10" fill="#c89b3c"/><path d="M25 17 Q32 11 39 17" fill="none" stroke="#f2efe6" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="15" r="1.7" fill="#f2efe6"/></svg>',
-    "audio": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#c89b3c"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><path d="M15 35a17 17 0 0 1 34 0" fill="none" stroke="#0e1524" stroke-width="3" stroke-linecap="round"/><rect x="12" y="34" width="8" height="15" rx="3.5" fill="#0e1524"/><rect x="44" y="34" width="8" height="15" rx="3.5" fill="#0e1524"/><circle cx="16" cy="41" r="2" fill="#f2efe6"/><circle cx="48" cy="41" r="2" fill="#f2efe6"/></svg>',
-    "wearables": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#96742c"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><rect x="25" y="5" width="14" height="12" rx="2.5" fill="#0e1524"/><rect x="25" y="47" width="14" height="12" rx="2.5" fill="#0e1524"/><circle cx="32" cy="32" r="16" fill="#f2efe6" stroke="#0e1524" stroke-width="2.2"/><line x1="32" y1="32" x2="32" y2="22" stroke="#0e1524" stroke-width="2.2" stroke-linecap="round"/><line x1="32" y1="32" x2="39" y2="36" stroke="#4f8f86" stroke-width="2.2" stroke-linecap="round"/><circle cx="32" cy="32" r="2" fill="#0e1524"/></svg>',
-    "photography": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#0e1524"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#c89b3c" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.4"/><rect x="10" y="22" width="44" height="27" rx="5" fill="#c89b3c"/><rect x="23" y="13" width="18" height="9" rx="2" fill="#c89b3c"/><circle cx="32" cy="36" r="11" fill="#f2efe6" stroke="#0e1524" stroke-width="2.2"/><circle cx="32" cy="36" r="5.5" fill="#4f8f86"/><circle cx="46" cy="28" r="2.2" fill="#f2efe6"/></svg>',
-    "computing": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4f8f86"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><rect x="20" y="11" width="24" height="42" rx="12" fill="#f2efe6" stroke="#0e1524" stroke-width="2.2"/><line x1="32" y1="11" x2="32" y2="27" stroke="#0e1524" stroke-width="2"/><rect x="28" y="17" width="8" height="12" rx="4" fill="#c89b3c"/></svg>',
-    "kitchen": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#c89b3c"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><path d="M13 23h30v17a11 11 0 0 1-11 11h-8a11 11 0 0 1-11-11z" fill="#f2efe6" stroke="#0e1524" stroke-width="2.2"/><path d="M43 27h5a6.5 6.5 0 0 1 0 13h-5" fill="none" stroke="#0e1524" stroke-width="2.2"/><path d="M20 8q3.5 4.5 0 8M29 8q3.5 4.5 0 8" fill="none" stroke="#4f8f86" stroke-width="2.2" stroke-linecap="round"/></svg>',
-    "travel": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#0e1524"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#c89b3c" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.4"/><rect x="14" y="23" width="36" height="36" rx="9" fill="#c89b3c"/><path d="M23 23v-7a9 9 0 0 1 18 0v7" fill="none" stroke="#f2efe6" stroke-width="2.6"/><rect x="23" y="34" width="18" height="11" rx="2.5" fill="#f2efe6"/><circle cx="32" cy="39.5" r="2" fill="#4f8f86"/></svg>',
-    "outdoor": '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4f8f86"/><circle cx="32" cy="32" r="29.5" fill="none" stroke="#0e1524" stroke-width="1" stroke-dasharray="1.5 3" opacity="0.35"/><circle cx="32" cy="32" r="21" fill="#f2efe6" stroke="#0e1524" stroke-width="2.2"/><polygon points="32,16 26,32 32,48 38,32" fill="#b5533c"/><polygon points="32,16 26,32 32,32" fill="#0e1524"/><circle cx="32" cy="32" r="2.6" fill="#c89b3c"/></svg>'
+    "smart-home": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h5v-6h4v6h5v-9"/></svg>',
+    "audio": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="7" rx="1"/><rect x="17" y="14" width="4" height="7" rx="1"/></svg>',
+    "wearables": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="1" width="6" height="4"/><rect x="9" y="19" width="6" height="4"/><circle cx="12" cy="12" r="6.2"/><path d="M12 9v3l2 1.4"/></svg>',
+    "photography": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="4"/><rect x="8" y="4" width="8" height="3"/></svg>',
+    "computing": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="5"/><line x1="12" y1="3" x2="12" y2="10"/></svg>',
+    "kitchen": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z"/><path d="M17 9h2a3 3 0 0 1 0 6h-2"/><line x1="7" y1="2" x2="7" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/></svg>',
+    "travel": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="13" rx="3"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><rect x="9" y="12" width="6" height="4"/></svg>',
+    "outdoor": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="14,8 10.5,10.5 8,15 11.5,12.5"/></svg>'
   };
 
   const CATEGORY_LABELS = {};
@@ -793,53 +599,15 @@ button{ font-family:inherit; }
     return btn;
   }
 
-  /* ---------------- Media helpers (gallery + video) ---------------- */
-  function getImages(p){
-    if (p.images && p.images.length) return p.images;
-    if (p.image) return [p.image];
-    return [];
-  }
-
-  function getMediaList(p){
-    const list = getImages(p).map(src => ({ type:'image', src }));
-    if (p.video) list.push({ type:'video', src:p.video });
-    return list;
-  }
-
-  const ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15.5" y2="15.5"/><line x1="10" y1="7" x2="10" y2="13"/><line x1="7" y1="10" x2="13" y2="10"/></svg>';
-  const ICON_PHOTOS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M8 21h10a2 2 0 0 0 2-2V8"/></svg>';
-  const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>';
-
   /* ---------------- Card rendering ---------------- */
   function cardHTML(p){
-    const images = getImages(p);
-    const hasPhoto = images.length > 0;
-    const media = getMediaList(p);
-
-    const badges = [];
-    if (images.length > 1) badges.push(`<span class="card__badge">${ICON_PHOTOS}${images.length}</span>`);
-    if (p.video) badges.push(`<span class="card__badge">${ICON_PLAY}Video</span>`);
-
-    const dots = images.length > 1
-      ? `<span class="card__dots" aria-hidden="true">${images.map((_, i) => `<i class="${i === 0 ? 'active' : ''}"></i>`).join('')}</span>`
-      : '';
-
-    const mediaBlock = hasPhoto
-      ? `<button type="button" class="card__media" data-cat="${p.category}" data-id="${p.id}" data-images='${escapeHTML(JSON.stringify(images))}' aria-label="Open gallery for ${escapeHTML(p.title)}" onclick="openModal('${p.id}')">
-          <img src="${images[0]}" alt="${escapeHTML(p.title)} — product photo" loading="lazy" onerror="handleImgError(this)">
-          ${badges.length ? `<span class="card__badge-row">${badges.join('')}</span>` : ''}
-          ${dots}
-          <span class="card__zoom" aria-hidden="true">${ICON_ZOOM}</span>
-        </button>`
-      : `<div class="card__icon" aria-hidden="true">${ICONS[p.category] || ''}</div>`;
-
-    return `<article class="card ${hasPhoto ? 'card--photo' : 'card--icon'}" data-cat="${p.category}">
-      ${hasPhoto ? '' : '<span class="card__hole" aria-hidden="true"></span>'}
+    return `<article class="card" data-cat="${p.category}">
+      <span class="card__hole" aria-hidden="true"></span>
       <div class="stamp" aria-hidden="true">
         <span class="stamp__code">${p.origin}</span>
         <span class="stamp__cat">${p.category.slice(0,4)}</span>
       </div>
-      ${mediaBlock}
+      <div class="card__icon" aria-hidden="true">${ICONS[p.category] || ''}</div>
       <h3 class="card__title">${escapeHTML(p.title)}</h3>
       <p class="card__desc">${escapeHTML(p.desc)}</p>
       <dl class="card__meta">
@@ -848,15 +616,10 @@ button{ font-family:inherit; }
         <div><dt>Origin</dt><dd>${escapeHTML(p.originName)}</dd></div>
       </dl>
       <div class="card__footer">
-        <div class="card__footer-top">
-          <span class="card__price"><small>Price</small>${p.price}</span>
-        </div>
-        <div class="card__actions">
-          ${media.length > 1 ? `<button type="button" class="btn btn--ghost" onclick="openModal('${p.id}')">Quick View</button>` : ''}
-          <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer sponsored" aria-label="View ${escapeHTML(p.title)} on official store, opens in new tab">
-            View on Store →
-          </a>
-        </div>
+        <span class="card__price"><small>Price</small>${p.price}</span>
+        <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer sponsored" aria-label="View ${escapeHTML(p.title)} on official store, opens in new tab">
+          View on Store →
+        </a>
       </div>
     </article>`;
   }
@@ -868,44 +631,21 @@ button{ font-family:inherit; }
     </div>`;
   }
 
-  window.handleImgError = function(imgEl){
-    const wrap = imgEl.closest('.card__media');
-    if (!wrap) return;
-    const cat = wrap.dataset.cat;
-    const iconDiv = document.createElement('div');
-    iconDiv.className = 'card__icon';
-    iconDiv.setAttribute('aria-hidden', 'true');
-    iconDiv.innerHTML = ICONS[cat] || '';
-    wrap.closest('.card').classList.remove('card--photo');
-    wrap.closest('.card').classList.add('card--icon');
-    wrap.replaceWith(iconDiv);
-  };
-
   function escapeHTML(str){
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
   }
 
-
   /* ---------------- Filtering + render ---------------- */
   function getFiltered(){
     const q = activeQuery.trim().toLowerCase();
-    const results = PRODUCTS.filter(p => {
+    return PRODUCTS.filter(p => {
       const matchesCat = activeCategory === 'all' || p.category === activeCategory;
       const haystack = (p.title + ' ' + p.desc + ' ' + p.categoryLabel + ' ' + p.originName).toLowerCase();
       const matchesQuery = q === '' || haystack.includes(q);
       return matchesCat && matchesQuery;
     });
-    // Photo-rich products first (gallery > single photo > icon-only), stable within each tier
-    return results.sort((a, b) => mediaPriority(a) - mediaPriority(b));
-  }
-
-  function mediaPriority(p){
-    const n = getImages(p).length;
-    if (n > 1) return 0;
-    if (n === 1) return 1;
-    return 2;
   }
 
   function render(){
@@ -925,68 +665,6 @@ button{ font-family:inherit; }
       : `Showing ${items.length} of ${PRODUCTS.length} products.`;
 
     updateSEO();
-    startCarousels();
-  }
-
-  /* ---------------- Auto-rotating photo carousels (every 3s, pause on hover/focus) ---------------- */
-  let carouselTimers = [];
-  function startCarousels(){
-    carouselTimers.forEach(t => clearInterval(t));
-    carouselTimers = [];
-
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-
-    document.querySelectorAll('.card__media[data-images]').forEach(mediaEl => {
-      let images;
-      try { images = JSON.parse(mediaEl.dataset.images); } catch (e) { return; }
-      if (!images || images.length < 2) return;
-
-      const imgEl = mediaEl.querySelector('img');
-      const dotWrap = mediaEl.querySelector('.card__dots');
-      let idx = 0;
-      let paused = false;
-      let timer = null;
-
-      mediaEl.addEventListener('mouseenter', () => { paused = true; });
-      mediaEl.addEventListener('mouseleave', () => { paused = false; });
-      mediaEl.addEventListener('focus', () => { paused = true; });
-      mediaEl.addEventListener('blur', () => { paused = false; });
-
-      function refreshDots(){
-        if (!dotWrap) return;
-        dotWrap.innerHTML = images.map((_, i) => `<i class="${i === idx ? 'active' : ''}"></i>`).join('');
-      }
-
-      timer = setInterval(() => {
-        if (paused || images.length < 2) return;
-        const nextIdx = (idx + 1) % images.length;
-
-        // Preload off-screen first — if this URL is blocked/broken, silently drop it
-        // from the rotation instead of ever touching the visible <img> (which would
-        // otherwise trigger its onerror fallback and destroy the whole photo card).
-        const probe = new Image();
-        probe.onload = () => {
-          // Slider-style crossfade: fade out, swap the already-loaded image in, fade back in
-          imgEl.style.opacity = '0';
-          setTimeout(() => {
-            idx = nextIdx;
-            imgEl.src = images[idx];
-            refreshDots();
-            requestAnimationFrame(() => { imgEl.style.opacity = '1'; });
-          }, 350);
-        };
-        probe.onerror = () => {
-          images.splice(nextIdx, 1);
-          if (idx > nextIdx) idx -= 1;
-          if (images.length < 2){ clearInterval(timer); }
-          refreshDots();
-        };
-        probe.src = images[nextIdx];
-      }, 3000);
-
-      carouselTimers.push(timer);
-    });
   }
 
   /* ---------------- Progressive SEO metadata ---------------- */
@@ -1014,220 +692,6 @@ button{ font-family:inherit; }
     }, 120);
   });
 
-  /* ---------------- Quick View Modal (gallery + video) ---------------- */
-  const modalOverlay = document.getElementById('modalOverlay');
-  const modalStage = document.getElementById('modalStage');
-  const modalThumbs = document.getElementById('modalThumbs');
-  const modalClose = document.getElementById('modalClose');
-  const modalBuyBtn = document.getElementById('modalBuyBtn');
-
-  let modalMedia = [];
-  let modalIndex = 0;
-  let modalProductTitle = '';
-  let lastFocusedEl = null;
-
-  function getVideoEmbedHTML(url, title){
-    const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{11})/);
-    if (yt){
-      return `<iframe src="https://www.youtube.com/embed/${yt[1]}" title="${escapeHTML(title)} — video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    }
-    const vimeo = url.match(/vimeo\.com\/(\d+)/);
-    if (vimeo){
-      return `<iframe src="https://player.vimeo.com/video/${vimeo[1]}" title="${escapeHTML(title)} — video" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-    }
-    return `<video controls preload="metadata" src="${url}" aria-label="${escapeHTML(title)} — video"></video>`;
-  }
-
-  function renderModalStage(){
-    const item = modalMedia[modalIndex];
-    if (!item){ modalStage.innerHTML = ''; return; }
-    modalStage.innerHTML = item.type === 'video'
-      ? getVideoEmbedHTML(item.src, modalProductTitle)
-      : `<img src="${item.src}" alt="${escapeHTML(modalProductTitle)} — photo ${modalIndex + 1} of ${modalMedia.length}" loading="lazy">`;
-
-    if (modalMedia.length > 1){
-      modalStage.insertAdjacentHTML('beforeend', `
-        <button type="button" class="modal__nav modal__nav--prev" aria-label="Previous item">‹</button>
-        <button type="button" class="modal__nav modal__nav--next" aria-label="Next item">›</button>
-      `);
-      modalStage.querySelector('.modal__nav--prev').addEventListener('click', () => stepModal(-1));
-      modalStage.querySelector('.modal__nav--next').addEventListener('click', () => stepModal(1));
-    }
-  }
-
-  function renderModalThumbs(){
-    if (modalMedia.length < 2){ modalThumbs.innerHTML = ''; return; }
-    modalThumbs.innerHTML = modalMedia.map((m, i) => {
-      const active = i === modalIndex ? ' active' : '';
-      return m.type === 'video'
-        ? `<button type="button" class="modal__thumb${active}" data-i="${i}" aria-label="Show video">${ICON_PLAY}</button>`
-        : `<button type="button" class="modal__thumb${active}" data-i="${i}" aria-label="Show photo ${i + 1}"><img src="${m.src}" alt="Thumbnail ${i + 1}" loading="lazy"></button>`;
-    }).join('');
-    modalThumbs.querySelectorAll('.modal__thumb').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalIndex = parseInt(btn.dataset.i, 10);
-        renderModalStage();
-        renderModalThumbs();
-      });
-    });
-  }
-
-  function stepModal(delta){
-    modalIndex = (modalIndex + delta + modalMedia.length) % modalMedia.length;
-    renderModalStage();
-    renderModalThumbs();
-  }
-
-  window.openModal = function(id){
-    const p = PRODUCTS.find(x => x.id === id);
-    if (!p) return;
-    modalMedia = getMediaList(p);
-    if (!modalMedia.length) return;
-    modalIndex = 0;
-    modalProductTitle = p.title;
-    lastFocusedEl = document.activeElement;
-
-    document.getElementById('modalCategory').textContent = `${p.categoryLabel} · ${p.originName}`;
-    document.getElementById('modalTitle').textContent = p.title;
-    document.getElementById('modalDesc').textContent = p.desc;
-    document.getElementById('modalPrice').innerHTML = `<small>Price</small>${p.price}`;
-    document.getElementById('modalMeta').innerHTML = `
-      <div><dt>SKU</dt><dd>${p.sku}</dd></div>
-      <div><dt>Category</dt><dd>${escapeHTML(p.categoryLabel)}</dd></div>
-      <div><dt>Origin</dt><dd>${escapeHTML(p.originName)}</dd></div>
-    `;
-    modalBuyBtn.href = p.link;
-    modalBuyBtn.setAttribute('aria-label', `View ${p.title} on official store, opens in new tab`);
-
-    renderModalStage();
-    renderModalThumbs();
-
-    modalOverlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-    modalClose.focus();
-  };
-
-  function closeModal(){
-    modalOverlay.hidden = true;
-    document.body.style.overflow = '';
-    modalStage.innerHTML = '';
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
-  document.addEventListener('keydown', (e) => {
-    if (modalOverlay.hidden) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') stepModal(-1);
-    if (e.key === 'ArrowRight') stepModal(1);
-  });
-
-  /* ---------------- Product structured data (SEO) ---------------- */
-  function injectProductJsonLd(){
-    const items = PRODUCTS.map((p, i) => {
-      const priceMatch = p.price.match(/([\d,]+\.\d{2}|\d+)/);
-      const entry = {
-        "@type": "Product",
-        "name": p.title,
-        "category": p.categoryLabel,
-        "url": p.link,
-        "brand": p.title.split(' ')[0]
-      };
-      const img = getImages(p)[0];
-      if (img) entry.image = img;
-      if (priceMatch){
-        entry.offers = {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": priceMatch[1].replace(/,/g, ''),
-          "availability": "https://schema.org/InStock",
-          "url": p.link
-        };
-      }
-      return { "@type": "ListItem", "position": i + 1, "item": entry };
-    });
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": items
-    });
-    document.head.appendChild(script);
-  }
-
-  /* ---------------- Trending ticker (featured / multi-image products) ---------------- */
-  function buildTicker(){
-    const bar = document.getElementById('tickerBar');
-    const track = document.getElementById('tickerTrack');
-    if (!bar || !track) return;
-
-    const featured = PRODUCTS.filter(p => mediaPriority(p) === 0);
-    if (!featured.length){ bar.hidden = true; return; }
-
-    const itemHTML = featured.map(p =>
-      `<button type="button" class="ticker__item" onclick="openModal('${p.id}')">🛍️ ${escapeHTML(p.title)}</button><span class="ticker__sep" aria-hidden="true">•</span>`
-    ).join('');
-
-    // Duplicate content once so the CSS animation (translateX -50%) loops seamlessly
-    track.innerHTML = itemHTML + itemHTML;
-  }
-
-  /* ---------------- Hero banner slider (Amazon-style, top of page) ---------------- */
-  function buildHeroBanner(){
-    const banner = document.getElementById('heroBanner');
-    const slidesWrap = document.getElementById('heroBannerSlides');
-    const dotsWrap = document.getElementById('heroBannerDots');
-    const prevBtn = document.getElementById('heroBannerPrev');
-    const nextBtn = document.getElementById('heroBannerNext');
-    if (!banner || !slidesWrap) return;
-
-    const featured = PRODUCTS.filter(p => mediaPriority(p) === 0).slice(0, 6);
-    if (!featured.length){ banner.hidden = true; return; }
-
-    slidesWrap.innerHTML = featured.map((p, i) => `
-      <div class="hero-banner__slide${i === 0 ? ' active' : ''}" data-i="${i}">
-        <img src="${getImages(p)[0]}" alt="${escapeHTML(p.title)} — featured product photo" loading="${i === 0 ? 'eager' : 'lazy'}">
-        <div class="hero-banner__overlay">
-          <span class="hero-banner__eyebrow">🔥 Featured This Week</span>
-          <h3>${escapeHTML(p.title)}</h3>
-          <p>${escapeHTML(p.desc)}</p>
-          <button type="button" class="hero-banner__cta" onclick="openModal('${p.id}')">Quick View →</button>
-        </div>
-      </div>
-    `).join('');
-
-    dotsWrap.innerHTML = featured.map((_, i) => `<i class="${i === 0 ? 'active' : ''}" data-i="${i}"></i>`).join('');
-
-    let current = 0;
-    let paused = false;
-    const slideEls = () => slidesWrap.querySelectorAll('.hero-banner__slide');
-    const dotEls = () => dotsWrap.querySelectorAll('i');
-
-    function goTo(i){
-      current = (i + featured.length) % featured.length;
-      slideEls().forEach((s, idx) => s.classList.toggle('active', idx === current));
-      dotEls().forEach((d, idx) => d.classList.toggle('active', idx === current));
-    }
-
-    dotsWrap.querySelectorAll('i').forEach(d => {
-      d.addEventListener('click', () => goTo(parseInt(d.dataset.i, 10)));
-    });
-    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-
-    banner.addEventListener('mouseenter', () => { paused = true; });
-    banner.addEventListener('mouseleave', () => { paused = false; });
-    banner.addEventListener('focusin', () => { paused = true; });
-    banner.addEventListener('focusout', () => { paused = false; });
-
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduceMotion && featured.length > 1){
-      setInterval(() => { if (!paused) goTo(current + 1); }, 4500);
-    }
-  }
-
   /* ---------------- Misc ---------------- */
   document.getElementById('year').textContent = new Date().getFullYear();
   document.getElementById('statCount').textContent = PRODUCTS.length;
@@ -1235,9 +699,6 @@ button{ font-family:inherit; }
 
   buildTabs();
   render();
-  injectProductJsonLd();
-  buildTicker();
-  buildHeroBanner();
 })();
 </script>
 
